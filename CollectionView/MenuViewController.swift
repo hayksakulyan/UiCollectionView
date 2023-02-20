@@ -10,6 +10,9 @@ import UIKit
 class MenuViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var groupsCollectionView: UICollectionView!
+    
+    
     var menu: Menu = Menu()
     
     override func viewDidLoad() {
@@ -20,11 +23,9 @@ class MenuViewController: UIViewController {
         collectionView.delegate = self
         
     }
-    
-
-   
-
 }
+
+
 extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menu.products.count

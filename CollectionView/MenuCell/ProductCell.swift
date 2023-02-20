@@ -10,6 +10,8 @@ import UIKit
 class ProductCell: UICollectionViewCell {
 
     @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var priceProduct: UILabel!
+    @IBOutlet weak var nameProduct: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +24,7 @@ class ProductCell: UICollectionViewCell {
 
     func setupCell(product: Product) {
         productImage.image = product.image
+        nameProduct.text = product.name
+        priceProduct.text = "\(product.price)"
     }
 }
