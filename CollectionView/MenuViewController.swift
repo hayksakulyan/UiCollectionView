@@ -14,13 +14,18 @@ class MenuViewController: UIViewController {
     
     
     var menu: Menu = Menu()
+    var selectedGroupIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
+        collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        groupsCollectionView.register(UINib(nibName: "GroupCell", bundle: nil), forCellWithReuseIdentifier: "GroupCell")
+        groupsCollectionView.dataSource = self
+        groupsCollectionView.delegate = self
         
     }
 }
@@ -28,16 +33,37 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return menu.products.count
+        if collectionView == groupsCollectionView {
+            return menu.groups.count
+        } else {
+            let group = menu.groups[selectedGroupIndex]
+            return menu.groups.count
+            }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-        let product = menu.products[indexPath.item]
-        cell.setupCell(product: product)
-        return cell
+        
+        if collectionView == groupsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCell", for: indexPath) as! GroupCell
+            let group = menu.groups[indexPath.item]
+            cell.setupCell(group: group)
+            return cell
+            
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
+            let group = menu.groups[selectedGroupIndex]
+            let product = group.products[indexPath.item]
+            cell.setupCell(product: product)
+            return cell
+        }
+        
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if collectionView == groupsCollectionView {
+            
+        }
         
         return CGSize(width: self.view.frame.width - 10, height: self.view.frame.width)
     }

@@ -16,6 +16,8 @@
 		62445C2029A27ABD00DB3921 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62445C1E29A27ABD00DB3921 /* ProductCell.swift */; };
 		62445C2129A27ABD00DB3921 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62445C1F29A27ABD00DB3921 /* ProductCell.xib */; };
 		62445C2329A287AF00DB3921 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62445C2229A287AF00DB3921 /* Menu.swift */; };
+		62445C2629A3EA6500DB3921 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62445C2429A3EA6500DB3921 /* GroupCell.swift */; };
+		62445C2729A3EA6500DB3921 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62445C2529A3EA6500DB3921 /* GroupCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		62445C1E29A27ABD00DB3921 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		62445C1F29A27ABD00DB3921 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		62445C2229A287AF00DB3921 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		62445C2429A3EA6500DB3921 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		62445C2529A3EA6500DB3921 /* GroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 			children = (
 				62445C1E29A27ABD00DB3921 /* ProductCell.swift */,
 				62445C1F29A27ABD00DB3921 /* ProductCell.xib */,
+				62445C2429A3EA6500DB3921 /* GroupCell.swift */,
+				62445C2529A3EA6500DB3921 /* GroupCell.xib */,
 			);
 			path = MenuCell;
 			sourceTree = "<group>";
@@ -145,6 +151,7 @@
 				62445C1229A2783000DB3921 /* LaunchScreen.storyboard in Resources */,
 				62445C2129A27ABD00DB3921 /* ProductCell.xib in Resources */,
 				62445C0F29A2783000DB3921 /* Assets.xcassets in Resources */,
+				62445C2729A3EA6500DB3921 /* GroupCell.xib in Resources */,
 				62445C0D29A2782F00DB3921 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +166,7 @@
 				62445C0629A2782F00DB3921 /* AppDelegate.swift in Sources */,
 				62445C2029A27ABD00DB3921 /* ProductCell.swift in Sources */,
 				62445C0829A2782F00DB3921 /* SceneDelegate.swift in Sources */,
+				62445C2629A3EA6500DB3921 /* GroupCell.swift in Sources */,
 				62445C1A29A278BA00DB3921 /* MenuViewController.swift in Sources */,
 				62445C2329A287AF00DB3921 /* Menu.swift in Sources */,
 			);
