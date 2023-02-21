@@ -32,15 +32,16 @@ class MenuViewController: UIViewController {
 
 
 extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    // section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == groupsCollectionView {
             return menu.groups.count
         } else {
             let group = menu.groups[selectedGroupIndex]
-            return menu.groups.count
+            return group.products.count
             }
     }
-    
+    // cell for section
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == groupsCollectionView {
@@ -62,16 +63,34 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == groupsCollectionView {
+            let groupName = menu.groups[indexPath.item].name
+            let width = groupName.widthOfString(usingFont: UIFont.systemFont(ofSize: 17))
+            return CGSize(width: width + 20, height: collectionView.frame.height)
+
+        } else {
             
+            return CGSize(width: self.view.frame.width - 10, height: self.view.frame.width)
         }
         
-        return CGSize(width: self.view.frame.width - 10, height: self.view.frame.width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == groupsCollectionView {
+            self.selectedGroupIndex = indexPath.item
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: false)
+            self.collectionView.reloadData()
+        }
     }
 }
