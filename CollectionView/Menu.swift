@@ -14,8 +14,10 @@ struct Group {
 }
 
 struct Product {
+    var groups: [Group]?
     var name: String
     var price: Float
+    var products: [Product]?
     var image: UIImage
 }
 
